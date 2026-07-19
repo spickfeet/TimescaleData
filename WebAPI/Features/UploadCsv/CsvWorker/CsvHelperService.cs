@@ -23,8 +23,7 @@ namespace WebAPI.Features.UploadCsv.CsvWorker
             {
                 Delimiter = ";",
                 HasHeaderRecord = true,
-                TrimOptions = TrimOptions.Trim,
-
+                TrimOptions = TrimOptions.Trim
             };
 
             using var csv = new CsvReader(reader, config);
@@ -43,7 +42,15 @@ namespace WebAPI.Features.UploadCsv.CsvWorker
                         break;
                     }
 
-                    record.Date = DateTime.SpecifyKind(record.Date, DateTimeKind.Utc);
+                    if (record.Date.Kind == DateTimeKind.Local)
+                    {
+                        record.Date = record.Date.ToUniversalTime();
+                    }
+                    else if (record.Date.Kind == DateTimeKind.Unspecified)
+                    {
+                        record.Date = DateTime.SpecifyKind(record.Date, DateTimeKind.Utc);
+                    }
+
                     var recordErrors = ValidateRecord(record, lineNumber);
 
                     errors.AddRange(recordErrors);
@@ -60,14 +67,16 @@ namespace WebAPI.Features.UploadCsv.CsvWorker
 
                 if (rows.Count == 0)
                 {
-                    return Result<List<ValueDto>>.Failure(new Fault("Файл пуст"));
+                    var fault = new Fault("InvalidCsvContent");
+                    fault.Details.Add(new Fault("Файл пуст"));
+                    return Result<List<ValueDto>>.Failure(fault);
                 }
 
                 return Result<List<ValueDto>>.Success(rows);
             }
             catch (OperationCanceledException)
             {
-                var fault = new Fault("InvalidCsvContent");
+                var fault = new Fault("OperationCancelled");
                 fault.Details.AddRange(errors);
                 fault.Details.Add(new Fault("Операция чтения была отменена"));
                 return Result<List<ValueDto>>.Failure(fault);

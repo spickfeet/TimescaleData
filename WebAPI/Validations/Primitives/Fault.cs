@@ -2,11 +2,11 @@
 {
     public class Fault
     {
-        public string Error { get; set; }
+        public string Message { get; set; }
         public List<Fault> Details { get; set; }
-        public Fault(string error)
+        public Fault(string message)
         {
-            Error = error;
+            Message = message;
             Details = new List<Fault>();
         }
     }

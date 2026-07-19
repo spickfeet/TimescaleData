@@ -97,9 +97,9 @@ namespace WebAPI.UnitTests.CalcStatistic
 
             result.IsFailure.Should().BeTrue();
             result.Error.Should().NotBeNull();
-            result.Error.Error.Should().Be("InvalidValues");
+            result.Error.Message.Should().Be("InvalidValues");
             result.Error.Details.Count.Should().Be(1);
-            result.Error.Details.First().Error.Should().Be("Список Values не может быть пустым");
+            result.Error.Details.First().Message.Should().Be("Список Values не может быть пустым");
         }
 
         [Fact]
@@ -111,9 +111,9 @@ namespace WebAPI.UnitTests.CalcStatistic
 
             result.IsFailure.Should().BeTrue();
             result.Error.Should().NotBeNull();
-            result.Error.Error.Should().Be("InvalidValues");
+            result.Error.Message.Should().Be("InvalidValues");
             result.Error.Details.Count.Should().Be(1);
-            result.Error.Details.First().Error.Should().Be("Список Values не может быть пустым");
+            result.Error.Details.First().Message.Should().Be("Список Values не может быть пустым");
         }
     }
 }
