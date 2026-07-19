@@ -12,7 +12,7 @@ namespace WebAPI.Features.CalcStatistic
             {
                 var error = new Fault("InvalidValues");
                 error.Details.Add(new("Список Values не может быть пустым"));
-                Result.Failure(error);
+                return Result<ResultDto>.Failure(error);
             }
 
             var minDate = values.Min(r => r.Date);
