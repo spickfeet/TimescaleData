@@ -85,7 +85,7 @@ namespace WebAPI.Features.UploadCsv.CsvWorker
             {
                 var fault = new Fault("InvalidCsvContent");
                 fault.Details.AddRange(errors);
-                fault.Details.Add(new Fault($"Ошибка чтения файла строка: {lineNumber}. Ошибка: {ex.Message}"));
+                fault.Details.Add(new Fault($"Ошибка чтения файла строка: {lineNumber + 1}. Ошибка: {ex.Message}"));
                 return Result<List<ValueDto>>.Failure(fault);
             }
         }
