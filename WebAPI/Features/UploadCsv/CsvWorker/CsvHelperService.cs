@@ -3,11 +3,10 @@ using CsvHelper;
 using System.Globalization;
 using WebAPI.DTOs.ValueDTOs;
 using WebAPI.Validations.Primitives;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace WebAPI.Features.Features.UploadCsv.CsvWorker
+namespace WebAPI.Features.UploadCsv.CsvWorker
 {
-    public  class CsvHelperService : ICsvHelperService
+    public class CsvHelperService : ICsvHelperService
     {
         private static readonly DateTime MinDate = new DateTime(2000, 1, 1);
         private const int MaxRows = 10000;
@@ -25,7 +24,7 @@ namespace WebAPI.Features.Features.UploadCsv.CsvWorker
                 Delimiter = ";",
                 HasHeaderRecord = true,
                 TrimOptions = TrimOptions.Trim,
-                
+
             };
 
             using var csv = new CsvReader(reader, config);
@@ -46,7 +45,7 @@ namespace WebAPI.Features.Features.UploadCsv.CsvWorker
 
                     record.Date = DateTime.SpecifyKind(record.Date, DateTimeKind.Utc);
                     var recordErrors = ValidateRecord(record, lineNumber);
-                    
+
                     errors.AddRange(recordErrors);
 
                     rows.Add(record);

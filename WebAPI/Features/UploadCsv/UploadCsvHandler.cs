@@ -1,13 +1,11 @@
 ﻿using MediatR;
 using WebAPI.Database.Models;
 using WebAPI.Database.UnitOfWork;
-using WebAPI.DTOs.ResultDTOs;
-using WebAPI.DTOs.ValueDTOs;
-using WebAPI.Features.Features.CalcStatistic;
-using WebAPI.Features.Features.UploadCsv.CsvWorker;
+using WebAPI.Features.CalcStatistic;
+using WebAPI.Features.UploadCsv.CsvWorker;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.UploadCsv
+namespace WebAPI.Features.UploadCsv
 {
     public class UploadCsvHandler : IRequestHandler<UploadCsvCommand, Result>
     {

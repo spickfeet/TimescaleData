@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
-using System.Collections.Generic;
 using WebAPI.Database.Repositories.ResultRepository;
 using WebAPI.DTOs.ResultDTOs;
-using WebAPI.Features.Features.UploadCsv;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.GetResults
+namespace WebAPI.Features.GetResults
 {
     public class GetResultsHandler : IRequestHandler<GetResultsQuery, Result<List<ResultDtoResponse>>>
     {

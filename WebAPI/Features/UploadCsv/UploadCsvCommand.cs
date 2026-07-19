@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.UploadCsv
+namespace WebAPI.Features.UploadCsv
 {
     public record UploadCsvCommand(string FileName, Stream FileStream) : IRequest<Result>;
 }

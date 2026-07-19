@@ -1,7 +1,7 @@
 ﻿using WebAPI.DTOs.ValueDTOs;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.UploadCsv.CsvWorker
+namespace WebAPI.Features.UploadCsv.CsvWorker
 {
     public interface ICsvHelperService
     {

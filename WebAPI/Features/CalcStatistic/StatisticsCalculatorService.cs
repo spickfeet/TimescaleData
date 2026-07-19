@@ -2,7 +2,7 @@
 using WebAPI.DTOs.ValueDTOs;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.CalcStatistic
+namespace WebAPI.Features.CalcStatistic
 {
     public class StatisticsCalculatorService : IStatisticsCalculatorService
     {

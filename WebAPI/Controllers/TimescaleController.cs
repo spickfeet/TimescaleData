@@ -4,9 +4,9 @@ using WebAPI.Const;
 using WebAPI.DTOs.CsvDTOs;
 using WebAPI.DTOs.ResultDTOs;
 using WebAPI.DTOs.ValueDTOs;
-using WebAPI.Features.Features.GetLastValues;
-using WebAPI.Features.Features.GetResults;
-using WebAPI.Features.Features.UploadCsv;
+using WebAPI.Features.GetLastValues;
+using WebAPI.Features.GetResults;
+using WebAPI.Features.UploadCsv;
 
 namespace WebAPI.Controllers
 {

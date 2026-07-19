@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
-using WebAPI.Database.Repositories.ResultRepository;
 using WebAPI.Database.Repositories.ValueRepositories;
 using WebAPI.DTOs.PageDTOs;
-using WebAPI.DTOs.ResultDTOs;
 using WebAPI.DTOs.SortDTOs;
 using WebAPI.DTOs.ValueDTOs;
-using WebAPI.Features.Features.GetResults;
 using WebAPI.Validations.Primitives;
 
-namespace WebAPI.Features.Features.GetLastValues
+namespace WebAPI.Features.GetLastValues
 {
     public class GetValuesHandler : IRequestHandler<GetValuesQuery, Result<List<ValueDtoResponse>>>
     {

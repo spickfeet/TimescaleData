@@ -6,8 +6,8 @@ using WebAPI.Database;
 using WebAPI.Database.Repositories.ResultRepository;
 using WebAPI.Database.Repositories.ValueRepositories;
 using WebAPI.Database.UnitOfWork;
-using WebAPI.Features.Features.CalcStatistic;
-using WebAPI.Features.Features.UploadCsv.CsvWorker;
+using WebAPI.Features.CalcStatistic;
+using WebAPI.Features.UploadCsv.CsvWorker;
 using WebAPI.Mapping.Profiles;
 using WebAPI.Middleware;
 
