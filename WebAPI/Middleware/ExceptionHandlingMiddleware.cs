@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using WebAPI.Exceptions;
 
 namespace WebAPI.Middleware
 {
@@ -54,6 +55,21 @@ namespace WebAPI.Middleware
                 {
                     Type = "DatabaseError",
                     Message = "Произошла ошибка при сохранении данных"
+                };
+
+                await context.Response.WriteAsJsonAsync(response);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                _logger.LogError(ex, "Объект не найден в базе данных");
+
+                context.Response.StatusCode = StatusCodes.Status404NotFound;
+                context.Response.ContentType = "application/json";
+
+                var response = new
+                {
+                    Type = "DatabaseError",
+                    Exception = ex
                 };
 
                 await context.Response.WriteAsJsonAsync(response);

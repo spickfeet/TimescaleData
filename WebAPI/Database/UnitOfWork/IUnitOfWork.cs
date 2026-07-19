@@ -7,7 +7,6 @@ namespace WebAPI.Database.UnitOfWork
     {
         IResultRepository ResultsRepository { get; }
         IValueRepository ValuesRepository { get; }
-
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
     }
